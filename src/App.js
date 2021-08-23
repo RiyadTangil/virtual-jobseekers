@@ -1,24 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from './Components/Home/Home';
+import { Toaster } from 'react-hot-toast';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
+import { createContext ,useState} from 'react';
+import Login from './Components/Login/Login/Login';
+import JobSeekerForm from './Components/JobSeekerForm/JobSeekerForm';
+
+export const UserContext = createContext()
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({})
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+<UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+  <Toaster/>
+    <Router>
+         <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+       
+          <Route path="/login">
+      <Login></Login>
+          </Route> 
+          <Route path="/employeeForm">
+    <JobSeekerForm></JobSeekerForm>
+          </Route> 
+        </Switch>
+    </Router>
+    </UserContext.Provider>
+
   );
 }
 

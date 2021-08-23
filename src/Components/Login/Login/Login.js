@@ -3,12 +3,12 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import firebaseConfig from "./firebase.config";
-import infoEmojis from '../../../images/info-emoji.svg';
+
 import { useHistory, useLocation } from "react-router";
 
 import { UserContext } from "../../../App";
 import "./login.css"
-import { Toast } from "react-bootstrap";
+
 
 
 
@@ -141,24 +141,7 @@ const Login = (props) => {
                             <input class="form-control" type="text" />
 
                         </div>}
-                        <>
-                            <Toast className="toast-right" onClose={() => setShow(false)} show={show} delay={5000} >
-
-
-                                <Toast.Header>
-
-                                    <img src={infoEmojis} className="rounded mr-2" alt="Info" />
-                                    <strong className="mr-auto">Important Info</strong>
-                                </Toast.Header>
-                                <Toast.Body className="text-center">
-                                    Use this email to see all admin features
-                              <br />
-                                    <b>Email: test@gmail.com</b>
-                                    <br/>
-                                    <b>password : 111111</b>
-                                </Toast.Body>
-                            </Toast>
-                        </>
+                       
 
                         <div class=" mb-1">
                             <label for="inputemail3" class="col-sm-2 col-form-label">
@@ -189,7 +172,7 @@ const Login = (props) => {
                             : <p style={{ cursor: "pointer" }}>Are you new user? <span onClick={() => setNewUser(!newUser)} name="newUser" id="newUser" class="text-primary">create account</span></p>
                         }
                         <div className=" justify-content-center  d-flex mb-1">
-                            <button className="w-75 btn main-bg" type="submit" variant="primary" size="md" block>
+                            <button className="w-75 btn btn-secondary" type="submit" variant="primary" size="md" block>
                                 {newUser ? "sign up" : "Log in"}
                             </button>
                         </div>
@@ -197,7 +180,7 @@ const Login = (props) => {
                     </form>
                     <p className="text-warning">{loggedInUser.error}</p>
                     <div className="justify-content-center d-flex">
-                        <button className="btn main-bg" onClick={handleGoogleSignIn}>sign in with google</button>
+                        <button className="btn btn-primary" onClick={handleGoogleSignIn}>sign in with google</button>
                     </div>
                 </div>
             </div>
