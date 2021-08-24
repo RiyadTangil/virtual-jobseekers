@@ -1,0 +1,14 @@
+.navbar-container{
+    z-index: 6;
+}
+.navbar-items ul li {
+margin-left: 40px!important;
+
+}
+.navbar-items ul li a{
+    color: antiquewhite !important;
+    text-decoration: none ;
+}
+.navbar-items{
+    margin-right: 20px;
+}

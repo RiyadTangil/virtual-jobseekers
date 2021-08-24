@@ -13,6 +13,11 @@ import {
 import { createContext ,useState} from 'react';
 import Login from './Components/Login/Login/Login';
 import JobSeekerForm from './Components/JobSeekerForm/JobSeekerForm';
+import StripePayment from './Components/StripePayment/StripePayment';
+import Payment from './Components/Payment/Payment';
+import Dashborad from './Components/Dashboard/Dashborad';
+import PrivetRoute from './Components/Login/PrivetRoute/PrivetRoute';
+import JobSeekers from './Components/JobSeekers/JobSeekers';
 
 export const UserContext = createContext()
 function App() {
@@ -30,9 +35,18 @@ function App() {
           <Route path="/login">
       <Login></Login>
           </Route> 
-          <Route path="/employeeForm">
+          <PrivetRoute path="/employeeForm">
     <JobSeekerForm></JobSeekerForm>
+          </PrivetRoute> 
+          <Route path="/payment">
+    <Payment></Payment>
           </Route> 
+          <Route path="/dashboard">
+  <Dashborad></Dashborad>
+          </Route> 
+          {/* <Route path="/service">
+ <JobSeekers></JobSeekers>
+          </Route>  */}
         </Switch>
     </Router>
     </UserContext.Provider>
