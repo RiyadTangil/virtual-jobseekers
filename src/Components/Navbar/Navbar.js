@@ -1,10 +1,45 @@
-import React, { useContext } from 'react';
+import React, { useContext ,useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 import "./Navbar.css"
+import jwt_decode from "jwt-decode";
 
 const Navbar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const[oldUser,serOldUser]=useState(null)
+    useEffect(() => {
+        const token = sessionStorage.getItem('token');
+
+        if (!token) {
+            return false;
+        }
+
+        const decodedToken = jwt_decode(token);
+        const { name, email, picture } = decodedToken;
+        const newSignedInUser = { name: name, email: email, img: picture }
+        setLoggedInUser(newSignedInUser)
+        fetch("https://still-brook-02175.herokuapp.com/jobseekers")
+            .then(res => res.json())
+            .then(data => {
+                const userWithEmail = data.find(user => user.email === loggedInUser.email)
+                const userWithPhone = data.find(user => user.PhoneNumber === loggedInUser.PhoneNumber)
+              
+          if(userWithEmail){
+            serOldUser(userWithEmail)
+   
+          }
+          else if(userWithPhone){
+            serOldUser(userWithPhone)
+   
+          }
+
+            })
+
+    }, [])
+
+
+   
+
     return (
 
         <nav class="navbar navbar-container navbar-expand-lg navbar-light bg-dark">
@@ -21,13 +56,16 @@ const Navbar = () => {
                         <li class="nav-item">
                             <a class="nav-link" href="#service">Service</a>
                         </li>
+                        {loggedInUser.email ?
                         <li class="nav-item">
-                            <a class="nav-link"><Link to="/dashboard">Dashboard</Link></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" ><Link to="/login">Login</Link></a>
-                        </li>
-                        {loggedInUser.phoneNumber}
+                        <a class="nav-link"><Link to="/dashboardManager">profile</Link></a>
+                    </li>:
+                     <li class="nav-item">
+                     <a class="nav-link" ><Link to="/login">Login</Link></a>
+                 </li>}
+                        
+                       
+                   
 
                     </ul>
 

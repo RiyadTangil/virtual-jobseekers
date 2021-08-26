@@ -18,33 +18,6 @@ const JobSeekerForm = () => {
     const history = useHistory();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
-
-
-    useEffect(() => {
-        fetch("https://still-brook-02175.herokuapp.com/jobseekers")
-            .then(res => res.json())
-            .then(data => {
-                const userWithEmail = data.find(user => user.email === loggedInUser.email)
-                const userWithPhone = data.find(user => user.PhoneNumber === loggedInUser.PhoneNumber)
-                console.log(userWithEmail, userWithPhone);
-                if (userWithEmail || userWithPhone) {
-                    console.log(true);
-                    history.replace({ pathname: "/dashboard" });
-                }
-
-
-
-            })
-
-    }, [])
-
-
-
-
-
-
-
-
     const { register, handleSubmit, watch, control, formState: { errors } } = useForm();
 
     const onSubmit = data => {

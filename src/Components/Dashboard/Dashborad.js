@@ -17,7 +17,7 @@ const Dashborad = () => {
 
     const [users, setUsers] = useState([])
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const history = useHistory();
+   
     useEffect(() => {
         fetch("https://still-brook-02175.herokuapp.com/jobseekers")
             .then(res => res.json())
@@ -33,9 +33,7 @@ const Dashborad = () => {
             setUsers(userWithPhone)
    
           }
-          else{
-            history.replace({ pathname: "/employeeForm" });
-          }
+    
 
             })
 
@@ -43,7 +41,7 @@ const Dashborad = () => {
 
     return (
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-            <Navbar></Navbar>
+              <Navbar></Navbar>
             <Row className="dashboard-container" >
                 <Col className="dashboard-nav" sm={3}>
                     <Nav variant="pills" className="flex-column">

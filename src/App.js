@@ -18,6 +18,7 @@ import Payment from './Components/Payment/Payment';
 import Dashborad from './Components/Dashboard/Dashborad';
 import PrivetRoute from './Components/Login/PrivetRoute/PrivetRoute';
 import JobSeekers from './Components/JobSeekers/JobSeekers';
+import DashboardManager from './Components/DashboardManager/DashboardManager';
 
 export const UserContext = createContext()
 function App() {
@@ -41,12 +42,12 @@ function App() {
           <Route path="/payment">
     <Payment></Payment>
           </Route> 
-          <Route path="/dashboard">
-  <Dashborad></Dashborad>
-          </Route> 
-          {/* <Route path="/service">
- <JobSeekers></JobSeekers>
-          </Route>  */}
+          <PrivetRoute path="/dashboard">
+          <DashboardManager></DashboardManager>
+          </PrivetRoute> 
+          <PrivetRoute path="/dashboardManager">
+ <DashboardManager></DashboardManager>
+          </PrivetRoute> 
         </Switch>
     </Router>
     </UserContext.Provider>
