@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Home from './Components/Home/Home';
+
 import { Toaster } from 'react-hot-toast';
 
 import {
@@ -11,14 +11,8 @@ import {
   useParams
 } from "react-router-dom";
 import { createContext ,useState} from 'react';
-import Login from './Components/Login/Login/Login';
-import JobSeekerForm from './Components/JobSeekerForm/JobSeekerForm';
-import StripePayment from './Components/StripePayment/StripePayment';
-import Payment from './Components/Payment/Payment';
-import Dashborad from './Components/Dashboard/Dashborad';
-import PrivetRoute from './Components/Login/PrivetRoute/PrivetRoute';
-import JobSeekers from './Components/JobSeekers/JobSeekers';
-import DashboardManager from './Components/DashboardManager/DashboardManager';
+
+import Assignment from './Components/Assignment/Assignment';
 
 export const UserContext = createContext()
 function App() {
@@ -30,24 +24,16 @@ function App() {
     <Router>
          <Switch>
           <Route exact path="/">
-            <Home></Home>
+          <Assignment></Assignment>
+          </Route>
+          <Route  path="/assignment">
+     <Assignment></Assignment>
           </Route>
        
-          <Route path="/login">
-      <Login></Login>
-          </Route> 
-          <PrivetRoute path="/employeeForm">
-    <JobSeekerForm></JobSeekerForm>
-          </PrivetRoute> 
-          <Route path="/payment">
-    <Payment></Payment>
-          </Route> 
-          <PrivetRoute path="/dashboard">
-          <DashboardManager></DashboardManager>
-          </PrivetRoute> 
-          <PrivetRoute path="/dashboardManager">
- <DashboardManager></DashboardManager>
-          </PrivetRoute> 
+   
+    
+         
+        
         </Switch>
     </Router>
     </UserContext.Provider>
