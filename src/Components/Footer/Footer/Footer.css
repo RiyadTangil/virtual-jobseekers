@@ -1,0 +1,31 @@
+.footer-area{
+    background-color: #6D787D;
+    background-size: cover;
+}
+.footer-divider{
+
+    background-color:antiquewhite;
+    height: 2px !important;
+
+}
+
+.footer-btn button{
+padding: 10px 20px;
+    font-size:13px !important;
+
+}
+.footer-horizontal-line{
+    border-right: 1px solid rgb(184, 184, 184);
+}
+.footer-area li{
+    padding-bottom: 10px;
+}
+
+.social-media .icon{
+    height: 40px;
+    width: 40px;
+    color: rgb(219, 223, 223);
+    border-radius: 50%;
+    border: 1px solid #dadbdb;
+    padding: 10px;
+}

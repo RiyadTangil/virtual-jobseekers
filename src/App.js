@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 import { Toaster } from 'react-hot-toast';
@@ -10,32 +10,31 @@ import {
   Link,
   useParams
 } from "react-router-dom";
-import { createContext ,useState} from 'react';
-
-import Assignment from './Components/Assignment/Assignment';
+import { createContext, useState } from 'react';
+import Home from './Components/Home/Home';
 
 export const UserContext = createContext()
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
   return (
 
-<UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-  <Toaster/>
-    <Router>
-         <Switch>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Toaster />
+      <Router>
+        <Switch>
           <Route exact path="/">
-          <Assignment></Assignment>
+            <Home></Home>
           </Route>
-          <Route  path="/assignment">
-     <Assignment></Assignment>
+          <Route path="/home">
+            <Home></Home>
           </Route>
-       
-   
-    
-         
-        
+
+
+
+
+
         </Switch>
-    </Router>
+      </Router>
     </UserContext.Provider>
 
   );
