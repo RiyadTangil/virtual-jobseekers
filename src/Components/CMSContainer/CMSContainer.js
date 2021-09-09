@@ -1,6 +1,7 @@
 import React from 'react';
 import Country from '../Country/Country';
 import "./CMSContainer.css"
+import countryMap from "../../images/country.PNG"
 
 const CMSContainer = () => {
 
@@ -19,16 +20,8 @@ const CMSContainer = () => {
             <div class="container  ">
                 <div class=" row ">
                     <div className="col-md-6 d-flex ">
-                        <div class=" w-25">
-
-                        </div>
-                        <div>
-                            <h5 class="fw-bold">Get access to exclusive deals <br />
-                            </h5>
-                            <h6 class="text-muted ">Only the best deals reach your inbox</h6>
-
-
-                        </div>
+                       
+                    <img src={countryMap} class="img-fluid" alt="..."></img>
                     </div>
                     <div className="col-md-6  ">
                         <div>

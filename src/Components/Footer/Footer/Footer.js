@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import whiteYOY from "../../../images/white.png"
 import hotel from "../../../images/hotel.png"
+import appStore from "../../../images/appStore.PNG"
 const Footer = () => {
     const noNamed = [
         { name: "Tax", link: "/emergency" },
@@ -83,6 +84,7 @@ const Footer = () => {
                 <div className="container ">
                     <div className="row">
                         <div className="col-md-4 footer-horizontal-line">
+                        <img src={appStore} class="img-fluid" alt="..."></img>
                         </div>
                         <div className="col-md-4 footer-horizontal-line">
                         <div className="row">

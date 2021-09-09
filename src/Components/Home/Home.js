@@ -12,8 +12,9 @@ import SearchContainer from '../SearchContainer/SearchContainer';
 const Home = () => {
     return (
         <div>
+             <MainNavbar></MainNavbar>
             <Navbar></Navbar>
-            <MainNavbar></MainNavbar>
+           
             <SearchContainer></SearchContainer>
             <BannerCardImage></BannerCardImage>
             <NewsLetter></NewsLetter>

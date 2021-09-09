@@ -3,9 +3,8 @@
 135.46deg,#d11450,#df293a);
     width: 100%;
     padding: 10px 0 32px;
-    margin-bottom: 18px;
-    position: relative;
     box-sizing: border-box;
+    /* z-index: 1; */
 }
 .notify-btn{
     background: #EE2A24;
